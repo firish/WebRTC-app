@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-aiortc-deployment
+  labels:
+    app: client-aiortc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-aiortc
+  template:
+    metadata:
+      labels:
+        app: client-aiortc
+    spec:
+      containers:
+      - name: client-aiortc-container
+        image: client_aiortc:latest

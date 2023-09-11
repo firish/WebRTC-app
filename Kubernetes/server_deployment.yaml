@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-aiortc-deployment
+  labels:
+    app: server-aiortc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server-aiortc
+  template:
+    metadata:
+      labels:
+        app: server-aiortc
+    spec:
+      containers:
+      - name: server-aiortc-container
+        image: server_aiortc:latest
+        ports:
+        - containerPort: 9001
